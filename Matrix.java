@@ -1,6 +1,15 @@
 
 
 public class Matrix {
+	public static void main(String[]args) {
+		Matrix m = Matrix.identity(3);
+		
+		m.set(1,0,3.0);
+
+		System.out.println(m);				
+		System.out.println(m.determinant());
+	}
+
 	double matrix[][];
 	int width, height;
 
@@ -63,6 +72,34 @@ public class Matrix {
 			for (int i = 0; i < height; i++)
 				v.set(j*height + i,  matrix[i][j]);
 		return v;
+	}
+
+	public String toString() {
+		String[] rows = new String[matrix.length];
+		for (int i = 0; i < rows.length; i++)
+			rows[i] = "|\t";
+		
+		for (int column = 0; column < matrix[0].length; column ++) {
+			int maxLength = 0;
+			for (int row = 0; row < matrix.length; row ++) { 
+				rows[row] += matrix[row][column];
+
+				maxLength = Math.max(maxLength, rows[row].length());	
+			}
+			
+			for (int row = 0; row < matrix.length; row ++) {
+				while (rows[row].length() <= maxLength)
+					rows[row] += " ";
+				rows[row] += "\t";
+			}
+		}
+		
+		
+		for (int i = 0; i < rows.length; i++)
+			rows[i] += "|";
+		
+
+		return String.join("\n", rows);	
 	}
 }
 
