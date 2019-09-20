@@ -54,7 +54,7 @@ public class Vector {
 	}
 
 
-	public Vector scalarMultiply(double scalar) {
+	public Vector scalarProduct(double scalar) {
 		Vector multiple = new Vector(dimension);
 		for (int i = 0; i < dimension; i++)
 			multiple.vector[i] = vector[i] * scalar;
@@ -65,7 +65,24 @@ public class Vector {
 	/*
 	 * Cross product only exists in R^0, R^1, R^3 and R^7 as a function from R^n X R^n -> R^n, so we will define as [ R^n ]^(n-1) -> R^n
 	 */
-	
+	public Vector crossProduct(Vector other) {
+		// for now, only R3 allowed.
+		if (dimension != 3 || other.dimension != 3)
+			throw new RuntimeException("Must accomplish cross product in R^3 only.");
+		
+		double a = vector[0];
+		double b = vector[1];
+		double c = vector[2];
+		double d = other.vector[0];
+		double e = other.vector[1];
+		double f = other.vector[2];
+
+		return new Vector(
+			b*f - c*e,
+			c*d - a*f,
+			a*e - b*d
+		);
+	}	
 
 	public double innerProduct(Vector other) {
 		if (other.dimension != dimension)

@@ -11,8 +11,8 @@
  * i^2 = j^2 = k^2 = ijk = -1
  */
 public class Quaternion {
-	double scalar;
-	Vector vector;
+	private double scalar;
+	private Vector vector;
 
 	public Quaternion() {
 		this(0.0, 0.0, 0.0, 0.0);
@@ -27,6 +27,24 @@ public class Quaternion {
 		this.vector = vector;
 	}
 	
+	public Quaternion add(Quaternion other) {
+		return new Quaternion(scalar + other.scalar, vector.add(other.vector));
+	}	
 	
-	
+	public Quaternion subtract(Quaternion other) {
+		return new Quaternion(scalar - other.scalar, vector.subtract(other.vector));
+	}
+
+	public Quaternion multiply(Quaternion other) {
+		double r1 = scalar;
+		double r2 = other.scalar;
+
+		Vector v1 = vector;
+		Vector v2 = other.vector;
+
+		return new Quaternion(
+			r1 * r2 - v1.innerProduct(v2),
+			v2.scalarProduct(r1).add(v1.scalarProduct(r2)).add(v1.crossProduct(v2))
+		);
+	}
 }
