@@ -4,6 +4,13 @@ public class Vector {
 	private double[] vector;
 	public final int dimension;
 
+	public Vector(double... values) {
+		this(values.length);
+		int i = 0;
+		for (double v : values)
+			vector[i++] = v;
+	}
+
 	public Vector(int dimensions) {
 		dimension = dimensions;
 		vector = new double[dimensions];
