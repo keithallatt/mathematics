@@ -103,4 +103,19 @@ public class Vector {
 		
 		return m;
 	}
+
+	public String toString() {
+		int maxLength = 0;
+		for (double value : vector)
+			maxLength = Math.max(maxLength, (""+value).length());
+		
+		String output = "";
+		for (double value : vector) {
+			String line = "" + value;
+			while (line.length() < maxLength)
+				line += " ";
+			output += "| "+line+" |\n";
+		}
+		return output.trim();
+	}
 }	
