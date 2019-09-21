@@ -7,7 +7,7 @@ public class Matrix {
 		m.set(1,0,3.0);
 
 		System.out.println(m);				
-		System.out.println(m.determinant());
+		System.out.println(m.vectorization());
 	}
 
 	double matrix[][];
