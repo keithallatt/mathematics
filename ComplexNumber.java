@@ -25,14 +25,18 @@ public class ComplexNumber {
 	public ComplexNumber divide(ComplexNumber other) {
 		ComplexNumber z = this.multiply(other.conjugate());
 		
-		z.a /= other.norm();
-		z.b /= other.norm();
+		z.a /= Math.pow(other.norm(), 2);
+		z.b /= Math.pow(other.norm(), 2);
 
 		return z;
 	}
 	
 	public double norm() {
 		return Math.sqrt(a*a + b*b);
+	}
+
+	public double arg() {
+		return Math.atan2(a, b);
 	}
 
 	public ComplexNumber conjugate() {
