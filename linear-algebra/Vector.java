@@ -62,6 +62,10 @@ public class Vector {
 		return multiple;
 	}
 
+	public Vector negative() {
+		return scalarProduct(-1);
+	}
+
 	/*
 	 * Cross product only exists in R^0, R^1, R^3 and R^7 as a function from R^n X R^n -> R^n, so we will define as [ R^n ]^(n-1) -> R^n
 	 */

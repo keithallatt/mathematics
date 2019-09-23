@@ -1,8 +1,11 @@
-
+import java.util.ArrayList;
 
 public abstract class Set<T> {
+	ArrayList<T> elements;
 	
-	
+	public Set() {
+		elements = new ArrayList<T>();
+	}
 
 	/**
 	 * Containment function. Returns true if element is in this set.
@@ -11,7 +14,8 @@ public abstract class Set<T> {
 	 */
 	public abstract boolean contains(T element);
 
+	
 	public void addElement(T element) {
-
+		elements.add(element);
 	}
 }
