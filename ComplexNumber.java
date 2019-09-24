@@ -54,4 +54,17 @@ public class ComplexNumber {
 		
 		return exponent.multiply(new ComplexNumber(scalar, 0));
 	}
+
+	public String toString() {
+		if (a == 0) {
+			if (b == 0)
+				return "0";
+			return ""+b+"i";
+		}
+		if (b == 0)
+			return ""+a;
+		if (b > 0)
+			return ""+a+"+"+b+"i";
+		return (""+a)+b+"i";
+	}
 }

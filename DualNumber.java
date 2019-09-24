@@ -13,5 +13,16 @@ public class DualNumber {
 		this.b = b;
 	}
 
-	
+	public String toString() {
+		if (a == 0) {
+			if (b == 0)
+				return "0";
+			return ""+b+"ε";
+		}
+		if (b == 0)
+			return ""+a;
+		if (b > 0)
+			return ""+a+"+"+b+"ε";
+		return (""+a)+b+"ε";
+	}
 }
