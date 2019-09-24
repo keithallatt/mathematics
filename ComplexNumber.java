@@ -42,4 +42,12 @@ public class ComplexNumber {
 	public ComplexNumber conjugate() {
 		return new ComplexNumber(a, -b);
 	}
+
+	public ComplexNumber pow(ComplexNumber other) {
+		double scalar = norm() / Math.exp(arg() * other.b);
+
+		ComplexNumber exponent = new ComplexNumber(Math.cos(other.a * arg()), Math.sin(other.a * arg()));
+		
+		return exponent.multiply(new ComplexNumber(scalar, 0));
+	}
 }
