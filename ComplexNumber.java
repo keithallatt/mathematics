@@ -1,5 +1,9 @@
 
-
+/**
+ * Complex numbers are an extension of the real numbers by adjoining the element i where i^2 = -1. 
+ * 
+ * This class represents complex numbers in the form a+bi.
+ */
 public class ComplexNumber {
 	private double a,b;
 

@@ -1,4 +1,4 @@
 # Don't commit .class files
 /*.class
 /*/*.class
-
+/check_all.sh
