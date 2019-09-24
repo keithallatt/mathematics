@@ -47,4 +47,29 @@ public class Quaternion {
 			v2.scalarProduct(r1).add(v1.scalarProduct(r2)).add(v1.crossProduct(v2))
 		);
 	}
+
+	public String toString() {
+		String repr = ""+scalar;
+
+		double b = vector.get(0);
+		double c = vector.get(1);
+		double d = vector.get(2);
+
+		if (b > 0)
+			repr += "+";
+		if (b != 0)
+			repr += ""+b+"i";
+		
+		if (c > 0)
+			repr += "+";
+		if (c != 0)
+			repr += ""+c+"j";
+		
+		if (d > 0)
+			repr += "+";
+		if (d != 0)
+			repr += ""+d+"k";
+		
+		return repr;
+	}
 }
