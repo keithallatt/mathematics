@@ -3,11 +3,12 @@ Mathematics related structures written in Java
 
 ## Quaternions
 
+
 Quaternions, often denoted as, h =
 a + b**i** + c**j** + d**k** &#x2208; &#x210d;,
-where **i**, **j**, and **k** are unit vectors in &#x211d;<sup>3</sup>.
+where **i**, **j**, and **k** are unit vectors in &#x211d;<sup>3</sup>. This is often described as an extension of the complex numbers (&#x210d; = &#x2102; + &#x2102;**j**) because taking complex numbers z<sub>1</sub> = a+b**i** and z<sub>2</sub> = c+d**i**, (a+b**i**) + (c+d**i**)**j** = a+b**i** + c**j** + d**ij** = a+b**i** + c**j** + d**k**.
 
-This can also be redefined in terms of a scalar added to a vector:
+This can also be redefined in terms of a scalar added to a vector in &#x211d;<sup>3</sup>:
 
 a + b**i** + c**j** + d**k** = r + v&#8407;, s.t. r = a, v&#8407; = b**i** + c**j** + d**k**.
 
