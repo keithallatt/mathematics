@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 
 public class Matrix {
 	public static void main(String[]args) {
@@ -74,6 +74,7 @@ public class Matrix {
 		return v;
 	}
 
+
 	public String toString() {
 		String[] rows = new String[matrix.length];
 		for (int i = 0; i < rows.length; i++)
@@ -101,5 +102,102 @@ public class Matrix {
 
 		return String.join("\n", rows);	
 	}
+
+	public Matrix inverse() {
+		if (width != height)
+			throw new RuntimeException("Non-square matrices do not have inverses");
+		if (determinant() == 0)
+			throw new RuntimeException("Singular matrices do not have inverses");
+		
+			
+        	double[][] inverse = new double[width][height];
+
+        	// minors and cofactors
+        	for (int i = 0; i < width; i++)
+        		for (int j = 0; j < height; j++)
+				inverse[i][j] = Math.pow(-1, i + j) * minor(i, j).determinant();
+
+        // adjugate and determinant
+        double det = 1.0 / determinant();
+        for (int i = 0; i < inverse.length; i++) {
+            for (int j = 0; j <= i; j++) {
+                double temp = inverse[i][j];
+                inverse[i][j] = inverse[j][i] * det;
+                inverse[j][i] = temp * det;
+            }
+        }
+	
+	Matrix inverse_matrix = new Matrix(width, height);
+	
+	for (int i = 0; i < width; i++)
+		for (int j = 0; j < height; j++)
+			inverse_matrix.set(i, j, inverse[i][j]);
+
+        return inverse_matrix;
+    }
+
+    private Matrix minor(int row, int column) {
+        double[][] minor = new double[width - 1][height - 1];
+
+        for (int i = 0; i < width; i++)
+            for (int j = 0; i != row && j < height; j++)
+                if (j != column)
+                    minor[i < row ? i : i - 1][j < column ? j : j - 1] = matrix[i][j];
+        
+	Matrix minor_matrix = new Matrix(width-1, height-1);
+	for (int i = 0; i < width-1; i++)
+		for (int j = 0; j < height-1; j++)
+			minor_matrix.set(i, j, minor[i][j]);
+
+	return minor_matrix;
+    }
+
+    private Matrix rref() {
+        double[][] rref = new double[matrix.length][];
+        for (int i = 0; i < matrix.length; i++)
+            rref[i] = Arrays.copyOf(matrix[i], matrix[i].length);
+
+        int r = 0;
+        for (int c = 0; c < rref[0].length && r < rref.length; c++) {
+            int j = r;
+            for (int i = r + 1; i < rref.length; i++)
+                if (Math.abs(rref[i][c]) > Math.abs(rref[j][c]))
+                    j = i;
+            if (Math.abs(rref[j][c]) < 0.00001)
+                continue;
+
+            double[] temp = rref[j];
+            rref[j] = rref[r];
+            rref[r] = temp;
+
+            double s = 1.0 / rref[r][c];
+            for (j = 0; j < rref[0].length; j++)
+                rref[r][j] *= s;
+            for (int i = 0; i < rref.length; i++) {
+                if (i != r) {
+                    double t = rref[i][c];
+                    for (j = 0; j < rref[0].length; j++)
+                        rref[i][j] -= t * rref[r][j];
+                }
+            }
+            r++;
+        }
+
+	Matrix reduced_row_echelon_form = new Matrix(width, height);
+	for (int i = 0; i < width; i++)
+		for (int j = 0; j < height; j++)
+			reduced_row_echelon_form.set(i, j, rref[i][j]);
+
+        return reduced_row_echelon_form;
+    }
+
+    private Matrix transpose() {
+        Matrix transpose = new Matrix(height, width);
+        for (int i = 0; i < matrix.length; i++)
+            for (int j = 0; j < matrix[i].length; j++)
+		transpose.set(j, i, get(i, j));
+
+        return transpose;
+    }
 }
 
