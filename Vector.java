@@ -108,6 +108,13 @@ public class Vector {
 		return m;
 	}
 
+	public double norm() {
+		double val = 0;
+		for (double value : vector)
+			val += Math.pow(value, 2);
+		return Math.sqrt(val);
+	}
+
 	public String toString() {
 		int maxLength = 0;
 		for (double value : vector)

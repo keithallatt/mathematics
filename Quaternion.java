@@ -48,6 +48,20 @@ public class Quaternion {
 		);
 	}
 
+	
+
+	public double norm() {
+		return Math.sqrt(Math.pow(scalar, 2) + Math.pow(vector.norm(), 2));
+	}
+
+	public Quaternion conjugate() {
+		return new Quaternion(scalar, vector.negative());
+	}
+
+	public Quaternion reciprocal() {
+		return conjugate().multiply(new Quaternion(Math.pow(norm(), -2), new Vector(3)));
+	}
+
 	public String toString() {
 		String repr = ""+scalar;
 
