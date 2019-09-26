@@ -70,22 +70,50 @@ public class Vector {
 	 * Cross product only exists in R^0, R^1, R^3 and R^7 as a function from R^n X R^n -> R^n, so we will define as [ R^n ]^(n-1) -> R^n
 	 */
 	public Vector crossProduct(Vector other) {
-		// for now, only R3 allowed.
-		if (dimension != 3 || other.dimension != 3)
-			throw new RuntimeException("Must accomplish cross product in R^3 only.");
-		
-		double a = vector[0];
-		double b = vector[1];
-		double c = vector[2];
-		double d = other.vector[0];
-		double e = other.vector[1];
-		double f = other.vector[2];
+		if (dimension == 3 && other.dimension == 3) {
+			double a = vector[0];
+			double b = vector[1];
+			double c = vector[2];
+			double d = other.vector[0];
+			double e = other.vector[1];
+			double f = other.vector[2];
+	
+			return new Vector(
+				b*f - c*e,
+				c*d - a*f,
+				a*e - b*d
+			); 
+		} else if (dimension == 7 && other.dimension == 7) {
+			double x1 = vector[0];	
+			double x2 = vector[1];
+			double x3 = vector[2];
+			double x4 = vector[3];
+			double x5 = vector[4];
+			double x6 = vector[5];
+			double x7 = vector[6];
+			
+			double y1 = other.vector[0];	
+			double y2 = other.vector[1];
+			double y3 = other.vector[2];
+			double y4 = other.vector[3];
+			double y5 = other.vector[4];
+			double y6 = other.vector[5];
+			double y7 = other.vector[6];
+			
+			return new Vector(
+				(-x3*y2 + x2*y3 - x5*y4 + x4*y5 - x6*y7 + x7*y6),
+				(-x1*y3 + x3*y1 - x6*y4 + x4*y6 - x7*y5 + x5*y7),
+				(-x2*y1 + x1*y2 - x7*y4 + x4*y7 - x5*y6 + x6*y5),
+				(-x1*y5 + x5*y1 - x2*y6 + x6*y2 - x3*y7 + x7*y3),
+				(-x4*y1 + x1*y4 - x2*y7 + x7*y2 - x6*y3 + x3*y6),
+				(-x7*y1 + x1*y7 - x4*y2 + x2*y4 - x3*y5 + x5*y3),
+				(-x5*y2 + x2*y5 - x4*y3 + x3*y4 - x1*y6 + x6*y1)		
+			);
+		}
+					
 
-		return new Vector(
-			b*f - c*e,
-			c*d - a*f,
-			a*e - b*d
-		);
+
+		throw new RuntimeException("Cross product in R^"+dimension+" not allowed.");
 	}	
 
 	public double innerProduct(Vector other) {
