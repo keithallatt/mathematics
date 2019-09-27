@@ -70,7 +70,11 @@ public class Vector {
 	 * Cross product only exists in R^0, R^1, R^3 and R^7 as a function from R^n X R^n -> R^n, so we will define as [ R^n ]^(n-1) -> R^n
 	 */
 	public Vector crossProduct(Vector other) {
-		if (dimension == 3 && other.dimension == 3) {
+		if (dimension == 0 && other.dimension == 0) {
+			return new Vector(0);
+		} else if (dimension == 1 && other.dimension == 0) {
+			return new Vector(vector[0] * other.vector[0]);
+		} else if (dimension == 3 && other.dimension == 3) {
 			double a = vector[0];
 			double b = vector[1];
 			double c = vector[2];
