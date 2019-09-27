@@ -12,6 +12,10 @@ public class DualNumber {
 		this.a = a;
 		this.b = b;
 	}
+	
+	public DualNumber(DualNumber other) {
+		return new DualNumber(a + other.a, b + other.b);
+	}
 
 	public String toString() {
 		if (a == 0) {
