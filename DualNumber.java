@@ -13,8 +13,30 @@ public class DualNumber {
 		this.b = b;
 	}
 	
-	public DualNumber(DualNumber other) {
+	public DualNumber add(DualNumber other) {
 		return new DualNumber(a + other.a, b + other.b);
+	}
+
+	public DualNumber subtract(DualNumber other) {
+		return new DualNumber(a - other.a, b - other.b);
+	}
+
+	public DualNumber multiply(DualNumber other) {
+		return new DualNumber(a * other.a, a * other.b + b * other.a);
+	}
+
+	public DualNumber divide(DualNumber other) {
+		return new DualNumber(a / other.a, (b * other.a - a * other.b) / Math.pow(other.a, 2));
+	}
+	
+	public DualNumber pow(DualNumber other) {
+		double scalar = Math.pow(a, other.a + 1);
+		double epsilon = (scalar * other. b * Math.log(a)) + (other.a * b);
+		return new DualNumber(scalar, epsilon);
+	}
+
+	public DualNumber conjugate() {
+		return new DualNumber(a, -b);
 	}
 
 	public String toString() {

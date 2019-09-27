@@ -15,12 +15,10 @@ public class ComplexNumber {
 	public ComplexNumber add(ComplexNumber other) {
 		return new ComplexNumber(a + other.a, b + other.b);
 	}
-
 	
 	public ComplexNumber subtract(ComplexNumber other) {
 		return new ComplexNumber(a + other.a, b + other.b);
 	}
-
 
 	public ComplexNumber multiply(ComplexNumber other) {
 		return new ComplexNumber(a * other.a - b * other.b, a * other.b + b * other.a);
