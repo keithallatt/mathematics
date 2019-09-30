@@ -61,6 +61,15 @@ public class Quaternion {
 	public Quaternion reciprocal() {
 		return conjugate().multiply(new Quaternion(Math.pow(norm(), -2), new Vector(3)));
 	}
+	
+	public static Quaternion generateRotationQuaternion(double theta, Vector axis) {
+		if (axis.dimension != 3)
+			throw new RuntimeException("Axis must be in 3-space");
+
+		double scalar = Math.cos(theta/2);
+		axis = axis.scalarProduct(Math.sin(theta/2) / Math.pow(axis.norm(), 2));
+		return new Quaternion(scalar, axis);
+	}
 
 	public String toString() {
 		String repr = ""+scalar;
