@@ -3,6 +3,8 @@ Mathematics related structures written in Java
 
 ## Fractions
 
+Fractions, (equiv. Rational Numbers, q &#x2208; &#x211a;) are the set of all numbers q = a / b, for a and b in the integers, b &ne; 0. Binary operations include addition, subtraction, multiplication, division. Exponentiation is defined for a rational base and integer power. The unary operation, the reciprocal, is defined for all non-zero rational numbers.
+
 ## Complex Numbers
 
 ## Dual Numbers

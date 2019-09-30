@@ -57,6 +57,19 @@ public class Fraction {
 	public Fraction reciprocal() {
 		return new Fraction(b, a);
 	}
+	
+	public Fraction pow(int n) {
+		if (n < 0) return reciprocal().pow(-n);
+		if (n == 0) return new Fraction(1);
+		
+		int numerator = 1;
+		int denominator = 1;
+		for (int i = 0; i < n; i++) {
+			numerator *= a;
+			denominator *= b;
+		}
+		return new Fraction(numerator, denominator);
+	}
 
 	public String toString() {
 		if (b == 1) return ""+a;
