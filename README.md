@@ -1,8 +1,15 @@
 # mathematics
 Mathematics related structures written in Java
 
-## Quaternions
+## Fractions
 
+## Complex Numbers
+
+## Dual Numbers
+
+## Hyperbolic Numbers
+
+## Quaternions
 
 Quaternions, often denoted as, h =
 a + b**i** + c**j** + d**k** &#x2208; &#x210d;,
@@ -23,3 +30,8 @@ The definition for Quaternion multiplication via the scalar and vector method is
 The definition for Quaternion reciprocation via the scalar and vector method is:
 
  (r, v&#8407;)<sup>-1</sup> = (r / (r<sup>2</sup> + v&#8407; &#x22c5; v&#8407;), -v&#8407; / (r<sup>2</sup> + v&#8407; &#x22c5; v&#8407;))
+
+## Matrices
+
+## Vectors
+
