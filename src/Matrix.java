@@ -102,6 +102,15 @@ public class Matrix {
 
 		return String.join("\n", rows);	
 	}
+	
+	public double trace() {
+		if (width != height)
+			throw new RuntimeException("Trace not defined for non-square matrices");
+		double trace = 0;
+		for (int i = 0; i < width; i++)
+			trace += get(i, i);
+		return trace;
+	}
 
 	public Matrix inverse() {
 		if (width != height)
