@@ -7,9 +7,15 @@ Fractions, (equiv. Rational Numbers, q &#x2208; &#x211a;) are the set of all num
 
 ## Complex Numbers
 
+Complex numbers, one of three hypercomplex number systems, are an extension of the real numbers, (z &#x2208; &#8450; = &#x211D; + &#x211D;**i**) by adjoining the imaginary unit **i**, where **i**<sup>2</sup> = -1.
+
 ## Dual Numbers
 
+Dual numbers, one of three hypercomplex number systems, are an extension of the real numbers, (&#x211D; + &#x211D;**&epsi;**) by adjoining the imaginary unit **&epsi;**, where **&epsi;**<sup>2</sup> = 0.
+
 ## Hyperbolic Numbers
+
+Hyperbolic numbers, one of three hypercomplex number systems, are an extension of the real numbers, (&#x211D; + &#x211D;**j**) by adjoining the imaginary unit **j**, where **j**<sup>2</sup> = 1.
 
 ## Quaternions
 
@@ -35,5 +41,25 @@ The definition for Quaternion reciprocation via the scalar and vector method is:
 
 ## Matrices
 
+Matrices are 2-dimensional grids of numbers. These are often used for linear transformations from &#x211D;<sup>m</sup> to &#x211D;<sup>n</sup>, where the matrix is n by m in size. Square matrices have special properties, such as the existence of the determinant, and in special cases, can be deemed invertible (determinant &ne; 0) or nilpotent (m<sup>n</sup> = 0 for some n, m &#x2208; M, n &#x2208; &#x2115;). These can also be used to solve systems of linear equations. 
+
 ## Vectors
 
+Vectors represent points, directions and other components in n-space (n being the dimension of the vector). These can be thought of as column matrices, or a m by 1 matrix. These are used primarily as a tool to describe a direction with a particular magnitude. Various other operations are defined for vectors, such as inner and outer products, or cross products.
+
+# Operations
+
+| Structure     | Add. | Sub. | Mult. | Div. | Non-Int Pow | Exponent |
+|---------------|------|------|-------|------|-------------|----------|
+| Real (double) | Yes  | Yes  | Yes   | Yes  | Yes         | Yes      |
+| Fraction      | Yes  | Yes  | Yes   | Yes  | No          | No       |
+| Complex       | Yes  | Yes  | Yes   | Yes  | Yes         | Yes      |
+| Dual          | Yes  | Yes  | Yes   | Yes  | Yes         | Yes      |
+| Hyperbolic    | Yes  | Yes  | Yes   | Yes  | Yes         | Yes      |
+| Quaternions   | Yes  | Yes  | Yes   | Yes  | No          | No       |
+| Matrices      | Yes  | Yes  | Yes   | No   | Sometimes<sup>1</sup>| Sometimes<sup>2</sup> |
+| Vectors       | Yes  | Yes  | Yes   | No   | No          | No       |
+
+<sup>1</sup> Matrix must have non-zero determinant.
+
+<sup>2</sup> Matrix must be nilpotent (m<sup>n</sup> = 0 for some n, m &#x2208; M, n &#x2208; &#x2115;).
