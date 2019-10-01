@@ -11,11 +11,11 @@ Complex numbers, one of three hypercomplex number systems, are an extension of t
 
 ## Dual Numbers
 
-Dual numbers, one of three hypercomplex number systems, are an extension of the real numbers, (&#x211D; + &#x211D;**&epsi;**) by adjoining the imaginary unit **&epsi;**, where **&epsi;**<sup>2</sup> = 0.
+Dual numbers, one of three hypercomplex number systems, are an extension of the real numbers, (&#x211D; + &#x211D;**&epsi;**) by adjoining the dual unit **&epsi;**, where **&epsi;**<sup>2</sup> = 0.
 
 ## Hyperbolic Numbers
 
-Hyperbolic numbers, one of three hypercomplex number systems, are an extension of the real numbers, (&#x211D; + &#x211D;**j**) by adjoining the imaginary unit **j**, where **j**<sup>2</sup> = 1.
+Hyperbolic numbers, one of three hypercomplex number systems, are an extension of the real numbers, (&#x211D; + &#x211D;**j**) by adjoining the hyperbolic unit **j**, where **j**<sup>2</sup> = 1.
 
 ## Quaternions
 
