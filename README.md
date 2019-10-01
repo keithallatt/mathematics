@@ -62,4 +62,4 @@ Vectors represent points, directions and other components in n-space (n being th
 
 <sup>1</sup> Matrix must have non-zero determinant.
 
-<sup>2</sup> Matrix must be nilpotent (m<sup>n</sup> = 0 for some n, m &#x2208; M, n &#x2208; &#x2115;).
+<sup>2</sup> Matrix must be nilpotent (m<sup>n</sup> = 0 for some n, m &#x2208; M, n &#x2208; &#x2115;) or diagonalizable (M = PDP<sup>-1</sup> for some P and D diagonal).
