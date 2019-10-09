@@ -147,6 +147,14 @@ public class Vector {
 		return Math.sqrt(val);
 	}
 
+	public double scalarProjection(Vector other) {
+		return this.innerProduct(other) / other.norm();
+	}
+	
+	public Vector vectorProjection(Vector other) {
+		return other.scalarProduct(this.scalarProjection(other));
+	}
+
 	public String toString() {
 		int maxLength = 0;
 		for (double value : vector)
